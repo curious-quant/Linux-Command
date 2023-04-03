@@ -1,1 +1,72 @@
+1. Man <commmand> - go to Manual.
+2. ls - list all the file a folder contains
+3. cd- change directory
 
+4. mdkir foldr name- make a folder
+   mkdir -p foder name/nested folder- use to make nested folder
+
+5. rmdir folder name- remove a folder(folder must be empty)
+   rm -rf folder name(remove folder with files)
+
+6. cd .. - back to the home folder
+
+7. pwd- present working directory
+
+8. touch file name - create an empty file
+
+9. mv file name folder name - will move file to that folder
+
+10. cp file name folder name -copy a file into a folder
+    cp -r folder1_name folder_name2 - copying a folder1 into folder 2  
+
+11. open file name - open a file 
+
+12. find- used to find files or folders matching a particular search pattern.
+ i)   find . -type f -name file name (find file)
+ii)  find . -type d -name directory name (find directories) 
+iii) find . -type l -name link name (search link)
+
+13. ln - create link
+    ln <original> link (hard link created) :  delete the original file, link will still work
+    ln -s <original> link(soft link created): delete the original file,link will be broken 
+
+14.i)gzip filename - will compress the file, create .gz file and delete original file
+   
+   ii) gzip -<number>filename
+       1 - worst but fastest
+       9 -best but slowest
+
+   iii) gzip -c filename > filename.gz : create .gz file without deleting original file
+    
+   iv) gzip -r foldername : compress all the file in a directory
+   
+   v) gzip -d filename.gz  : decompress the file
+   
+   15). gunzip- basically gzip command except -d option always enabled :gunzip filename.gz
+
+     gunzip -c filename.z > anotherfilename  : extract to differemt filesname using output redirecton(>) using -c option
+
+16). tar(tape archive) : use to create an archive grouping file into single file
+
+     i) tar -cf archive.tar file1 file2  : c option stands for create. The f option is used to write to file the archive.
+
+      ii) tar -xf archive.tar   : extract file from archive
+
+      iii) tar -xf archive.tar -C directory  :to extract them to a specific directory
+
+      iv) tar -czf archive.tar.gz file1 file2  :tar is often used to create a compressed archive, gzipping the archive.
+              like creating a tar archive, and then running gzip on it.
+
+      v) tar -xf archive.tar.gz  :To unarchive a gzipped archive
+
+17). Alias - ls -al --print something more useful than alone ls command
+
+      alias ll='ls -al' -:create a new command, for example I like to call it ll.
+
+      The alias will work until the terminal session is closed.
+
+18). cat :prints a file's content to the standard output.
+     cat file1 file2 > file3  :concatenate the content of multiple files into a new file
+     cat -n file1 :see the line with line numbers.
+
+19)  less <filename>  : shows you the content stored inside a file.Press q to quit.
