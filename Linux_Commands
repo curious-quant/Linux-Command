@@ -149,12 +149,109 @@ vi) can change the permissions given to a file using the chmod command. can be d
  				               iii) g  :stands for group
  				               iv) o  :stands for others
 
-			 b)Then you type either + or - to add a permission, or to remove it.
+			       b)Then you type either + or - to add a permission, or to remove it.
 
-           c) Then you add one or more permission symbols (r,w,x).
+                               c) Then you add one or more permission symbols (r,w,x).
 
-			 d) All followed by the file or folder name.
+			       d) All followed by the file or folder name.
 
-                     ex. chmod a+r filename #everyone can now read
+                                        ex. chmod a+r filename #everyone can now read
 			                chmod a+rw filename #everyone can now read and write
 			                chmod o-rwx filename #others (not the owner, not in group)
+					
+29) umask: new created file have default permission, umask helps to modify them
+
+	i) umask with no arguments will show you the current umask : 0002 (an octal value that represent the permissions)
+        
+        ii) umask -S : see a human-readable notation(ex. u=rwx,g=rwx,o=rx)
+      
+	iii) In the numeric notation, we typically change the last 3 digits.
+
+		Here's a list that gives a meaning to the number:
+			 0  :read, write, execute
+			 1  :read and write
+			 2  :read and execute
+			 3  :read only
+			 4  :write and execute
+			 5  :write only
+			 6  :execute only
+			 7  :no permissions
+		ex. umask 002 - changing the umask value from 0002 to 002 in numeric foramt
+
+30) a) du: calculate the size of a directory as a whole
+    b) du * :calculate the size of each file individually
+    c) du -m :display values in MegaBytes
+    d) du -g :display values in Gigabytes
+    e) du -h :show a human-readable notation for sizes of directory
+    f) du -ah : print the size of each file in the directories
+
+31) a) df :used to get disk usage information.print out info. of voulume mounted
+    b) df -h :will show disk usage info. in human relatable format
+    c) df directory_name : specify directory name to get information about volume
+
+32) basename : If you run basename string: on a path string that points to a directory, you will get the last segment of the path.
+      ex. basename /users/john/test.txt   will return strng - test.txt
+          basenane/users/john       will return strin - john
+
+33) dirname : you have a path to a file, for example /Users/john/test.txt  
+              and run dirname /Users/john/test.txt will return /Users/john string
+
+34) a) ps :list of user-initiated processes currently running in the current session.
+    b) ps aux :list all processes
+    c) the longer commands are cut, use ps axww :continue the command listing on a new line instead of cutting it.
+    d) ps axww | grep "Visual Studio Code" : search for a specific process combining grep with a pipe
+    e) coloumn return by ps :  1) PID,the process ID  2) TT,tells us the terminal id used
+                               3) STAT, tells us the state of the process
+                               i) I : process that sleeping longer than 20 seconds
+                               ii) R : Running Process
+                               iii) S : process that is sleeping for lesser than 20 seconds
+                               iv) T : Stopped process
+                               v) U : process in uninteruptable wait
+                               vi) Z :dead process
+   f) TIME :tells us how long the process has been running.
+
+35) top : list the processes running in real time
+
+36) a) kill <PID> : terminate a program given PID.
+    By default, this sends the TERM  signal to terminate the process id specified.
+    
+    b) We can use flags to send other signals, including:
+        kill -HUP <PID> :  HUP means hang up, It's sent automatically when a terminal window 
+                           that started a process is closed before terminating the process
+
+	kill -INT <PID> :INT means interrupt, and it sends the same signal used when we press ctrl-C in the terminal
+
+	kill -KILL <PID> : killis not sent to the process, but to the operating system kernel,which
+                           immediately stops and terminates the process.
+	kill -TERM <PID> :TERM means terminate. The process will receive it and terminate itself.its Default signal sent bykill
+ 
+	kill -CONT <PID> : CONT means continue. It can be used to resume a Stopped Process.
+ 
+	kill -STOP <PID> : STOP is not sent to the process, but to the operating system kernel, which
+                           immediately stops (but does not terminate) the process.
+      
+     c) You might see numbers used instead, like kill -1 <PID>
+           1 :corresponds to HUP    2 :corresponds to INT
+           9 :corresponds to kill  15 :corresponds to TERM
+          18:corresponds to CONT
+
+37) killall: a) killall <name> :kill multiple processes at once. name is name of the program.
+             you can have multiple instances of the program running,
+
+38) vim : a) vim filename : edit the file
+          b) vim have two main mode: 1. command mode 2.Insert mode
+          c) you can enter insert mode by typing i key.
+          d) you can press Esc key to exit insert mode and go to command mode(can't edit in command mode)
+          d) :w - Saving the File
+          e) :wq - Save and Quit
+          f) :q! - Quit Without Saving
+          g) undo by pressing u in command mode
+          h) redo by pressing ctrl-r
+          i) pressing x delete the currently highlighted character
+          j) pressing A goes at the end of the currently selected line
+          k) press 0 to go to the start of the line
+          l) go to the first character of word and press d followed by w to delete the word
+          m) use a number between d and w. d3w - deletes 3 words forward
+          n) press d followe by d to delete the a whole entire line
+          o) press d followed by $ to delete the entire line from where cursor is, untill the end		
+					
