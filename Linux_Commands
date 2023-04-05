@@ -253,5 +253,65 @@ vi) can change the permissions given to a file using the chmod command. can be d
           l) go to the first character of word and press d followed by w to delete the word
           m) use a number between d and w. d3w - deletes 3 words forward
           n) press d followe by d to delete the a whole entire line
-          o) press d followed by $ to delete the entire line from where cursor is, untill the end		
+          o) press d followed by $ to delete the entire line from where cursor is, untill the end
+	  
+39) emacs : is another awesome text editor
+            emacs filename :edit the file and press ctrl-x followed by ctrl-w to write 
+            press ctrl-x followed by ctrl-c to exit emacs.
+
+40) nano: nano filename : edit the file in nano editor and ctrl-X to exit nano editor
+
+41) whoami :print user name currently logged in
+
+42) who :displays the users logged into the system
+
+43) su : su <username> :will start a new shell as another user.
+
+44) sudo :used to run a command as root.
+    sudo -i : start a shell as root. ctrl-d to exit it.
+
+45) passwd : use to change password
+            user mode: type passwd, will ask old password then new password to be set
+           as root : passwd <username> <new password>, won't ask old password
+
+46) ping : pings a specific network host, on the local network or on the Internet.
+           The commands sends a request to the server, and the server returns a response
+           ping  works using the ICMP (Internet Control Message Protocol)protocol
+           Not all servers support pinging. done on purpose, to "hide" the server, or just to reduce the load
+
+           ping <host> :where <host> could be a domain name, or an IP address.
+            
+           if you want to specify number of time you want to try pin ex. ping -c 2 google.com
+            
+47) traceroute : traceroute <host> :trace the route of the packets go through 
+
+48) clear : clear all the previous command. ctrl-l : shortcut
+
+49) history : show the history of all the commands typed in the Terminal(save 500 command )
+             history -c : to clear the history
+             history | grep ping : You can combine history with you grep to find a command you ran(ex.ping)
+
+50) export : use to export variables to child processes.
+             calling export, list all the exported variables.
+
+51) crontab : Cron jobs are jobs that are scheduled to run at specific intervals.
+              crontab command is the entry point to work with cron jobs
+             
+              crontab -l : list cron jobs defiend by you(will return none if not any cron job defined by you)
+              crontab -e : edit a cron job or add new ones
+
+52) uname : without any options will return the Operating System codename.
+
+           uname -mp : m option shows the hardware name and the p option prints the processor architecture name
+
+           uname -srv : The s option prints the Operating System name. r prints the release, v prints the version
+ 
+           uname -n : prints the node network name
+  
+           uname -a : prints all the information available
+
+53) env : use to pass environment variable without setting them on the outer environment
+         env : will return a list of the environment variables 
+
+54) printenv : use to print the values of environment variables
 					
