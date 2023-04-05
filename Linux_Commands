@@ -1,4 +1,4 @@
-1. Man <commmand> - go to Manual.
+1. Man <commmand> - give manual info. for that command.
 2. ls - list all the file a folder contains
 3. cd- change directory
 
@@ -238,7 +238,42 @@ vi) can change the permissions given to a file using the chmod command. can be d
 37) killall: a) killall <name> :kill multiple processes at once. name is name of the program.
              you can have multiple instances of the program running,
 
-38) vim : a) vim filename : edit the file
+38) jobs : we can run comamnd in the background using the & symbol after the command
+          We can get back to that program using the fg  command
+
+         jobs : give the job number
+
+         fg<jobid> : switch back to jobs using fg and jobid
+   
+         jobs -l : print the process id of each job
+
+39) bg : resume the execution of the command in the background. ex. bg 1 :resume execution of the job #1 in the background
+
+40) fg : will resume to the foreground the last job that was suspended
+
+41) type: tell you how the command will be interpreted. The output will depend on the shell used.(ex.Bash,Zsh,Fish)
+
+         A command can be one of those 4 types:
+		1) an executable
+		2) a shell built-in program
+		3) a shell function
+		4) an alias
+
+42) which : will return the path to the command specified. example- which ls, will return path of ls command
+            which will only work for executables stored on disk, not aliases or built-in shell functions
+
+43) nohup: nohup <coomand> : let the process continue working even after you log out or close the session to a server
+
+44) xargs : through the use of xargs the output of a command is used as the input of another command
+           syntax: command1 | xargs command2 : will run command2, using the output of command1 as its arguments
+
+            command1 | xargs -p command2 : print a confirmation prompt with the action it's going to take.
+
+            command1 | xargs -p -n1 command2 : perform one iteration at a time
+  
+            command1 | xargs -I : allows you to get the output into a placeholder
+
+45) vim : a) vim filename : edit the file
           b) vim have two main mode: 1. command mode 2.Insert mode
           c) you can enter insert mode by typing i key.
           d) you can press Esc key to exit insert mode and go to command mode(can't edit in command mode)
@@ -254,27 +289,27 @@ vi) can change the permissions given to a file using the chmod command. can be d
           m) use a number between d and w. d3w - deletes 3 words forward
           n) press d followe by d to delete the a whole entire line
           o) press d followed by $ to delete the entire line from where cursor is, untill the end
-	  
-39) emacs : is another awesome text editor
+
+46) emacs : is another awesome text editor
             emacs filename :edit the file and press ctrl-x followed by ctrl-w to write 
             press ctrl-x followed by ctrl-c to exit emacs.
 
-40) nano: nano filename : edit the file in nano editor and ctrl-X to exit nano editor
+47) nano: nano filename : edit the file and ctrl-X to exit nano editor
 
-41) whoami :print user name currently logged in
+48) whoami :print user name currently logged in
 
-42) who :displays the users logged into the system
+49) who :displays the users logged into the system
 
-43) su : su <username> :will start a new shell as another user.
+50) su : su <username> :will start a new shell as another user.
 
-44) sudo :used to run a command as root.
+51) sudo :used to run a command as root.
     sudo -i : start a shell as root. ctrl-d to exit it.
 
-45) passwd : use to change password
+52) passwd : use to change password
             user mode: type passwd, will ask old password then new password to be set
            as root : passwd <username> <new password>, won't ask old password
 
-46) ping : pings a specific network host, on the local network or on the Internet.
+53) ping : pings a specific network host, on the local network or on the Internet.
            The commands sends a request to the server, and the server returns a response
            ping  works using the ICMP (Internet Control Message Protocol)protocol
            Not all servers support pinging. done on purpose, to "hide" the server, or just to reduce the load
@@ -283,24 +318,24 @@ vi) can change the permissions given to a file using the chmod command. can be d
             
            if you want to specify number of time you want to try pin ex. ping -c 2 google.com
             
-47) traceroute : traceroute <host> :trace the route of the packets go through 
+54) traceroute : traceroute <host> :trace the route of the packets go through 
 
-48) clear : clear all the previous command. ctrl-l : shortcut
+55) clear : clear all the previous command. ctrl-l : shortcut
 
-49) history : show the history of all the commands typed in the Terminal(save 500 command )
+56) history : show the history of all the commands typed in the Terminal(save 500 command )
              history -c : to clear the history
              history | grep ping : You can combine history with you grep to find a command you ran(ex.ping)
 
-50) export : use to export variables to child processes.
+57) export : use to export variables to child processes.
              calling export, list all the exported variables.
 
-51) crontab : Cron jobs are jobs that are scheduled to run at specific intervals.
+58) crontab : Cron jobs are jobs that are scheduled to run at specific intervals.
               crontab command is the entry point to work with cron jobs
              
               crontab -l : list cron jobs defiend by you(will return none if not any cron job defined by you)
               crontab -e : edit a cron job or add new ones
 
-52) uname : without any options will return the Operating System codename.
+59) uname : without any options will return the Operating System codename.
 
            uname -mp : m option shows the hardware name and the p option prints the processor architecture name
 
@@ -310,8 +345,7 @@ vi) can change the permissions given to a file using the chmod command. can be d
   
            uname -a : prints all the information available
 
-53) env : use to pass environment variable without setting them on the outer environment
+60) env : use to pass environment variable without setting them on the outer environment
          env : will return a list of the environment variables 
 
-54) printenv : use to print the values of environment variables
-					
+61) printenv : use to print the values of environment variables
